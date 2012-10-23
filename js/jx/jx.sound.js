@@ -514,7 +514,7 @@ Jx().$package(function(J){
         // make sure the flash movie is visible, otherwise the onload is not fired!
         try {
             J.swfobject.embedSWF(path, 'swfSound_Flash_div', '1', '1', '8.0.0',
-                    J.path+'style/swf/expressInstall.swf', flashvars, params, attributes);
+                    J.path+'swf/expressInstall.swf', flashvars, params, attributes);
         } catch (e) {
             J.error('J.Sound module error: ' + e.message, 'Sound');
             // alert( 'Seems like you are missing swfobject! - Please include

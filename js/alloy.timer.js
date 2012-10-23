@@ -135,7 +135,7 @@ Jx().$package(function(J){
 	}
 	var timeCall = function(){
 
-		//J.sound.play();
+		sound.play();
 		if(promptText!=""){
 			if(promptText.match(/^http/)){
 				window.open(promptText);
@@ -145,7 +145,7 @@ Jx().$package(function(J){
 			alert(text.timeUp);
 		}
 		
-		//J.sound.stop();
+		sound.stop();
 
 
 	}
@@ -387,8 +387,8 @@ Jx().$package(function(J){
 		tomatoData.taskList[task.planStartTime] = task;
 	};
 
-	//J.sound.init();
-	//J.sound.load("./audio/ring.mp3");
+	var sound = new J.sound();
+	sound.load("./audio/ring.mp3",false);
 	initLocalStorage();
 
 	showTaskList(tomatoData);
