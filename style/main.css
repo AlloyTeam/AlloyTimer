@@ -56,11 +56,11 @@ ul{
 
 #main{
 	margin-top:40px;
-	-webkit-animation: alloyAnimation 2.5s cubic-bezier(.4,1.8,.5,.8) 0 1;
-	-moz-animation: alloyAnimation 2.5s cubic-bezier(.4,1.8,.5,.8) 0 1;
-	-ms-animation: alloyAnimation 2.5s cubic-bezier(.4,1.8,.5,.8) 0 1;
-	-o-animation: alloyAnimation 2.5s cubic-bezier(.4,1.8,.5,.8) 0 1;
-	animation: alloyAnimation 2.5s cubic-bezier(.4,1.8,.5,.8) 0 1;
+	-webkit-animation: alloyAnimation 1.2s cubic-bezier(.4,1.8,.5,.8) 0 1;
+	-moz-animation: alloyAnimation 1.2s cubic-bezier(.4,1.8,.5,.8) 0 1;
+	-ms-animation: alloyAnimation 1.2s cubic-bezier(.4,1.8,.5,.8) 0 1;
+	-o-animation: alloyAnimation 1.2s cubic-bezier(.4,1.8,.5,.8) 0 1;
+	animation: alloyAnimation 1.2s cubic-bezier(.4,1.8,.5,.8) 0 1;
 }
 
 @-webkit-keyframes alloyAnimation {
