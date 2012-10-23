@@ -32,6 +32,7 @@ body{
 	cursor:default;
 	color:#666;
 	
+	
 }
 input {
 
@@ -53,8 +54,42 @@ ul{
 	margin:10px auto 10px;
 }
 
+#main{
+	margin-top:40px;
+	-webkit-animation: alloyAnimation 2.5s cubic-bezier(.4,1.8,.5,.8) 0 1;
+	-moz-animation: alloyAnimation 2.5s cubic-bezier(.4,1.8,.5,.8) 0 1;
+	-ms-animation: alloyAnimation 2.5s cubic-bezier(.4,1.8,.5,.8) 0 1;
+	-o-animation: alloyAnimation 2.5s cubic-bezier(.4,1.8,.5,.8) 0 1;
+	animation: alloyAnimation 2.5s cubic-bezier(.4,1.8,.5,.8) 0 1;
+}
+
+@-webkit-keyframes alloyAnimation {
+	from {
+		margin-top:-200px;
+	}
+	to {
+		margin-top:40px;
+	}
+}
+@-moz-keyframes alloyAnimation {
+	from {
+		margin-top:-200px;
+	}
+	to {
+		margin-top:40px;
+	}
+}
+@keyframes alloyAnimation {
+	from {
+		margin-top:-200px;
+	}
+	to {
+		margin-top:40px;
+	}
+}
+
 #title{
-	margin:30px auto;
+	margin:0 auto 30px auto;
 
 	font-size: 50px;
 	font-weight: normal;
