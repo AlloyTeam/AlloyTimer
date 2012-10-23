@@ -30,6 +30,7 @@ body{
 	font-size:14px;
 	line-height:1.8;
 	cursor:default;
+	color:#666;
 	
 }
 input {
@@ -63,10 +64,14 @@ ul{
 	line-height: 20px;
 	font-weight: normal;
 }
-#remainTime{
+.remainTime{
 	text-align:center;
-	font-size:120px;
+	font-size:160px;
 	line-height:1.2;
+	color: #999;
+}
+.remainTimeActive{
+	color:#3C8CFF;
 }
 #progressBarBox {
 	margin:auto;

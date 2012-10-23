@@ -41,10 +41,12 @@ Jx().$package(function(J){
 		currentTaskEl = $D.id("currentTask");
 	
 	text = i18n.text = {
+		siteTitle : "Alloy Timer 之番茄工作法",
 		pleaseStart: "请输入任务...",
 		needNum: "请输入正确的分钟数",
 		timeUp: "恭喜你，你又完成了一个番茄任务，继续加油哦^_^！",
 		warnText: "你有正在进行的番茄工作定时，如果离开本页将撤销此定时",
+		pleaseInputTask: "请输入任务!",
 		confirmClearTaskList : "确认清空吗?",
 		confirmOverwrite : "数据不同步，确认覆盖吗?"
 	};
@@ -88,11 +90,13 @@ Jx().$package(function(J){
 			showCurrentTask();
 			
 			$D.addClass(progressBarBox, "active");
+			$D.addClass(remainTimeEl, "remainTimeActive");
+			
 			$D.addClass(startWorkButton, "disabled");
 			$D.addClass(startRestButton, "disabled");
 			$D.removeClass(stopButton, "disabled");
 			updateProgress();
-			timer=setInterval(updateProgress, 1000);
+			timer = setInterval(updateProgress, 1000);
 		}
 	}
 
@@ -107,12 +111,14 @@ Jx().$package(function(J){
 
 		if(remainTime>=0){
 			var progress = remainTime / (planTime/1000);
-			console.log("progress:"+progress);
-			remainTimeEl.innerText = nH+":"+nM+":"+nS;
-			remainTimeEl.title = "剩余时间："+nH+":"+nM+":"+nS;
+			var remainTimeText = (nH==="00" ? "" : (nH + ":")) + nM + ":" + nS;
+			remainTimeEl.innerText = remainTimeText;
+			remainTimeEl.title = "剩余时间："+remainTimeText;
 			progressBar.style.width = progress*100+"%";
-			console.log(progressBar.style.width);
-			if(remainTime===0){
+			
+			document.title = remainTimeText + " 倒计时 - " + text.siteTitle;
+			
+			if(remainTime === 0){
 				timeComing();
 			}
 		}
@@ -138,24 +144,25 @@ Jx().$package(function(J){
 		}else{
 			alert(text.timeUp);
 		}
-		//document.title=siteTitle;
+		
 		//J.sound.stop();
 
 
 	}
 	var stopTiming = function(){
-		
+		clearTimeout(timer);
 		tomatoData.taskList[currentTaskId].stopTime = +new Date();
 		saveTaskList(tomatoData);
 		recoverCurrentTask();
+		
 		showTaskList(tomatoData);
-		//document.title=siteTitle;
-		//toggleProgressSection();
-		clearTimeout(timer);
+		document.title = text.siteTitle;
 		$D.removeClass(progressBarBox, "active");
+		$D.removeClass(remainTimeEl, "remainTimeActive");
 		$D.removeClass(startWorkButton, "disabled");
 		$D.removeClass(startRestButton, "disabled");
 		$D.addClass(stopButton, "disabled");
+		
 		isTiming=false;
 	}
 
@@ -192,20 +199,20 @@ Jx().$package(function(J){
 			li = $D.node("li");
 			$D.addClass(li, "alert");
 			var taskDetail = 
-				"任务：【"+task.taskName+"】时间("
+				"任务：【"+task.taskName+"】时间 "
 				+J.format.date(new Date(task.planStartTime), "hh:mm")+" - "
-				+J.format.date(new Date(task.planStopTime), "hh:mm")+")";
+				+J.format.date(new Date(task.planStopTime), "hh:mm")+" ";
 			
 			
 			if(!task.stopTime){
-				taskDetail += ", 但：你好像后来打酱油去了？";
+				taskDetail += ", 但你好像打酱油去了？";
 				taskClassName = "alert-info";
 			}else if(Math.round(task.stopTime/1000/60) === Math.round(task.planStopTime/1000/60)){
 				taskDetail += "，恭喜你按时完成！";
 				taskClassName = "alert-success";
 
 			}else{
-				taskDetail += "，但：你【停止】于："+J.format.date(new Date(task.stopTime), "hh:mm");
+				taskDetail += "，但你【停止】于："+J.format.date(new Date(task.stopTime), "hh:mm");
 				taskClassName = "alert-error";
 			}
 
@@ -228,14 +235,22 @@ Jx().$package(function(J){
 
 
 	$E.on(startWorkButton,"click", function(e){
-		var workTime = getTime($D.id("workTime").value);
-		startTiming(workTime);
+		if(taskNameEl.value !== text.pleaseStart && taskNameEl.value !== ""){
+		
+			var workTime = getTime($D.id("workTime").value);
+			startTiming(workTime);
+		}else{
+			alert(text.pleaseInputTask);
+		}
 	});
 
 	$E.on(startRestButton,"click",function(e){
-		var restTime = getTime($D.id("restTime").value);
-		
-		startTiming(restTime);
+		if(taskNameEl.value !== text.pleaseStart && taskNameEl.value !== ""){
+			var restTime = getTime($D.id("restTime").value);
+			startTiming(restTime);
+		}else{
+			alert(text.pleaseInputTask);
+		}
 	});
 
 	$E.on(stopButton, "click", function(e){
