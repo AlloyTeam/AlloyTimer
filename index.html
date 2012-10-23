@@ -4,53 +4,68 @@
 	<meta charset="utf-8" />
 	<meta name="author" content="Tencent.AlloyTeam.Jetyu" />
 	<meta name="copyright" content="Tencent.AlloyTeam" />
-	<title>番茄工作法</title>
+	<title>Alloy Timer</title>
 	<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="./style/main.css" />
 
 </head>
 <body>
-	<h1 id="title">番茄工作法</h1>
-	<div id="remainTime"></div>
-	<div id="progressBarBorder">
-		<div id="progressBar"></div>
+	<div id="control">
+		<h2 id="title">Alloy Timer</h2>
+		<h5 id="subTitle">之番茄工作法</h5>
+		<div id="remainTime"></div>
+		<div id="progressBarBox" class="progress progress-striped">
+			<div id="progressBar" class="bar"></div>
+		</div>
+
+		<div id="currentTask"></div>
+		
+		<textarea id="taskName" rows="2" title="请输入任务...">请输入任务...</textarea>
+		<button id="startWorkButton" class="btn btn-primary">开始工作</button>
+		<button id="startRestButton" class="btn btn-warning">开始休息</button>
+		<button id="stopButton" class="btn btn-danger disabled">停止</button>
+
 	</div>
 
-
-
-	<div id="control">
-		<h3>当前任务</h3>
-		<div id="currentTask">赶紧开始当前任务吧！</div>
-
-
-		<h3>工作名称</h3>
-		<input id="taskName" type="text" value="工作1" />
-
-		<h3>工作时长</h3>
-		<input id="workTime" type="text" value="25" />
-		<h3>休息时长</h3>
-		<input id="restTime" type="text" value="0.05" />
-		<input id="isLoopCheckbox" type="checkbox" /><label for="isLoopCheckbox">循环</label>
-		
-
-		<button id="startWorkButton">开始工作</button>
-		<button id="startRestButton">开始休息</button>
-		<button id="stopButton">停止</button>
-
-		<h3>番茄工作方法</h3>
-		<ul>
+	<div id="more">
+		<button id="introButton" class="btn btn-info">番茄工作方法</button>
+		<ol id="introBoard">
 			<li>输入一个任务，将番茄时间设为25分钟点【开始工作】</li>
 			<li>专注工作，中途不允许做任何与该任务无关的事，直到番茄时钟响起</li>
 			<li>然后短暂休息一下，5分钟左右</li>
+		</ol>
+
+		<button id="settingButton" class="btn btn-info">设置</button>
+		<ul id="settingBoard" class="form-inline">
+			<li>
+				<label>
+					<span id="loopCheckboxText">自动循环</span>
+					<input id="isLoopCheckbox" type="checkbox" />
+				</label>
+			</li>
+			<li>
+				<span id="workTimeText">工作时长</span>
+				<input id="workTime" type="text" value="25" title="上下拖拽或者上下按键也可以改变值" />
+			</li>
+			<li>
+				<span id="restTimeText">休息时长</span>
+				<input id="restTime" type="text" value="5" title="上下拖拽或者上下按键也可以改变值" />
+			</li>
 		</ul>
 
 		
-		<h3>任务记录</h3>
-		<ul id="taskList"></ul>
+		<button id="taskListButton" class="btn btn-success">任务记录</button>
+		<div id="taskListBoard">
+			<ul id="taskList"></ul>
+			<button id="clearTaskListButton" class="btn btn-danger">清空记录</button>
+		</div>
 	</div>
-
+	
 	<div class="copyright">Copyright &copy; <script>document.write(new Date().getFullYear());</script> <a href="http://www.AlloyTeam.com/" target="_blank">Tencent AlloyTeam</a>. All Rights Reserved.</div>
 
+	
+	
+	
 	<script src="./js/jx/jx.core.js"></script>
 	<script src="./js/jx/jx.base.js"></script>
 	<script src="./js/jx/jx.browser.js"></script>
@@ -63,7 +78,7 @@
 	<script src="./js/jx/jx.swfobject.js"></script>
 	<script src="./js/jx/jx.sound.js"></script>
 
-	<script src="./js/tomato.js"></script>
+	<script src="./js/alloy.timer.js"></script>
 	
 	
 	

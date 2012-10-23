@@ -25,11 +25,15 @@
 
 
 body{
-	font-family: Tahoma, Arial, "MS Trebuchet", sans-serif;
+
+	font-family:Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei',Tahoma, Arial, "MS Trebuchet", 'Î¢ÈíÑÅºÚ',sans-serif;
 	font-size:14px;
+	line-height:1.8;
+	cursor:default;
+	
 }
 input {
-	display: block;
+
 	margin:10px auto;
 }
 button{
@@ -37,57 +41,129 @@ button{
 	margin:10px auto;
 }
 label{
-	display: block;
-	margin:10px auto;
+	cursor:pointer;
 }
 
+ul{
+	list-style:none;
+}
+
+.btn{
+	margin:10px auto 10px;
+}
 
 #title{
-	margin:10px auto;
-	width:500px;
-	text-align:center;
-	font-size:60px;
+	margin:30px auto;
+
+	font-size: 50px;
+	font-weight: normal;
+}
+#subTitle{
+	font-size: 20px;
+	line-height: 20px;
+	font-weight: normal;
 }
 #remainTime{
 	text-align:center;
-	font-size:180px;
+	font-size:120px;
+	line-height:1.2;
 }
-#progressBarBorder,
-#progressBar{
-
+#progressBarBox {
+	margin:auto;
 	width:500px;
 	height:15px;
 	overflow: hidden;
-	
+	box-shadow: inset 0px 0px 3px;
 }
-#progressBarBorder{
-	display: block;
-	margin:10px auto;
-	border:1px solid #fff;
-	box-shadow:1px 1px 15px #000;
 
-}
-#progressBar{
-	background:blue;
-}
+
+
 #control{
 	margin:10px auto;
-	width:500px;
+	width:600px;
+	text-align:center;
+}
+
+#more{
+	margin:10px auto;
+	width:600px;
+}
+
+#currentTask{
+	font-size: 16px;
+	margin:10px;
+}
+
+#taskName{
+	display: block;
+	margin: auto;
+	height: 20px;
+	width: 400px;
+	padding: 20px 15px;
+	font-weight: bold;
+	text-align: center;
 }
 
 
-.taskLeave{
-	background:yellow;
+#startWorkButton{
+	display:block;
+	height: 50px;
+	width: 200px;
+}
+#startRestButton{
+	display:block;
+	height: 40px;
+	width: 150px;
 }
 
-.taskDone{
-	background:blue;
-}
-.taskStop{
-	background:red;
+#stopButton{
+	display:block;
+	width: 100px;
 }
 
+#introBoard{
+	display:none;
+	list-style-position:inside;
+}
+#settingBoard{
+	display:none;
+	
+}
+#loopCheckboxText{
+	line-height: 22px;
+	float: left;
+	margin: 0px 10px 0px 0;
+}
+#isLoopCheckbox{
+	float:left;
+}
+#workTimeText{
+	float: left;
+	margin:10px 0 0 0;
+	line-height: 20px;
+}
+#workTime{
+	width:80px;
+	margin:5px 0 5px 10px;
+	cursor:n-resize;
+}
+#restTimeText{
+	float: left;
+	margin:10px 0 0 0;
+	line-height: 20px;
+}
+#restTime{
+	width:80px;
+	margin:5px 0 5px 10px;
+	cursor:n-resize;
+}
+#taskListBoard{
+	display:none;
+	
+}
 .copyright{
 	margin: 50px auto;
 	text-align:center;
+	font-family: Tahoma, Arial, "MS Trebuchet", 'Î¢ÈíÑÅºÚ',sans-serif;
+	font-size:12px;
 }
