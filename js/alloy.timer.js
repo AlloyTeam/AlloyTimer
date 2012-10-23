@@ -145,7 +145,7 @@ Jx().$package(function(J){
 			alert(text.timeUp);
 		}
 		
-		sound.stop();
+		//sound.stop();
 
 
 	}
@@ -386,7 +386,8 @@ Jx().$package(function(J){
 	var addTask = function(task){
 		tomatoData.taskList[task.planStartTime] = task;
 	};
-
+	
+	J.sound.init();
 	var sound = new J.sound();
 	sound.load("./audio/ring.mp3",false);
 	initLocalStorage();

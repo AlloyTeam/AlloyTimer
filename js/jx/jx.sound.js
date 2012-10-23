@@ -550,9 +550,10 @@ Jx().$package(function(J){
      * @ignore
      */
     soundModeDetector = function(){
-        if(J.browser.chrome){
-            return 1;//chrome新版有问题, 播放不了audio
-        }else if(J.platform.iPad) {
+        //if(J.browser.chrome){
+            //return 1;//chrome新版有问题, 播放不了audio
+        //}else 
+		if(J.platform.iPad) {
             return 4;
         }else if(window.Audio && (new Audio).canPlayType('audio/mpeg')){
             return 3; //以上浏览器的高版本支持audio对象播放mp3格式
