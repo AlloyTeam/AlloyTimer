@@ -316,7 +316,7 @@ Jx().$package(function(J){
 	$E.on(restTime,"keydown", function(e){
 		if(e.keyCode === 38){
 			restTime.value++;
-		}else if(e.keyCode === 40 && workTime.value>1){
+		}else if(e.keyCode === 40 && restTime.value>1){
 			restTime.value--;
 		}
 	});
