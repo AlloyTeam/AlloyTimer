@@ -115,7 +115,9 @@ ul{
 	overflow: hidden;
 	box-shadow: inset 0px 0px 3px;
 }
-
+#progressBar{
+	width:100%;
+}
 
 
 #control{

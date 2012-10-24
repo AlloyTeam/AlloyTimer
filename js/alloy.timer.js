@@ -395,12 +395,10 @@ Jx().$package(function(J){
 		J.sound.init();
 		sound = new J.sound();
 		sound.load("./audio/ring.mp3",false);
+		
 		initLocalStorage();
-
 		showTaskList(tomatoData);
 
-		planStart(getTime($D.id("workTime").value));
-		updateProgress();
 	}
 	
 	start();
