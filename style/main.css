@@ -27,7 +27,7 @@
 body{
 
 	font-family:Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei',Tahoma, Arial, "MS Trebuchet", 'Î¢ÈíÑÅºÚ',sans-serif;
-	font-size:14px;
+	font-size:16px;
 	line-height:1.8;
 	cursor:default;
 	color:#666;
@@ -165,7 +165,18 @@ ul{
 
 #introBoard{
 	display:none;
+	margin-left:25px;
+}
+#introBoard h4{
+	font-weight:normal;
+}
+#introList{
+	
 	list-style-position:inside;
+}
+#introList li{
+	
+	margin:5px;
 }
 #settingBoard{
 	display:none;
