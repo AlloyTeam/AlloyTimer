@@ -6,6 +6,7 @@ Jx().$package(function(J){
 	var isTiming=false,
 		planTime,
 		timer,
+		sound,
 		startTime,
 		stopTime,
 		isLoop=false,
@@ -43,6 +44,7 @@ Jx().$package(function(J){
 	text = i18n.text = {
 		siteTitle : "Alloy Timer 之番茄工作法",
 		pleaseStart: "请输入任务...",
+		restTask: "休息，休息一下^_^",
 		needNum: "请输入正确的分钟数",
 		timeUp: "恭喜你，你又完成了一个番茄任务，继续加油哦^_^！",
 		warnText: "你有正在进行的番茄工作定时，如果离开本页将撤销此定时",
@@ -175,7 +177,7 @@ Jx().$package(function(J){
 				"你需要在 "
 				+ J.format.date(new Date(task.planStartTime), "hh:mm")+" - "
 				+ J.format.date(new Date(task.planStopTime), "hh:mm")
-				+ "完成如下工作，加油哦^_^";
+				+ "完成如下事情，加油哦^_^";
 		
 
 		currentTaskEl.innerText = taskDetail;
@@ -245,6 +247,7 @@ Jx().$package(function(J){
 	});
 
 	$E.on(startRestButton,"click",function(e){
+		taskNameEl.value = text.restTask;
 		if(taskNameEl.value !== text.pleaseStart && taskNameEl.value !== ""){
 			var restTime = getTime($D.id("restTime").value);
 			startTiming(restTime);
@@ -354,7 +357,7 @@ Jx().$package(function(J){
 		tomatoData = J.json.parse(localStorage.getItem("tomatoData"));
 		
 		if(tomatoData){
-			//var tomatoJson = J.json.parse(tomatoData);
+			
 			return tomatoData;
 		}else{
 			tomatoData = {
@@ -387,15 +390,21 @@ Jx().$package(function(J){
 		tomatoData.taskList[task.planStartTime] = task;
 	};
 	
-	J.sound.init();
-	var sound = new J.sound();
-	sound.load("./audio/ring.mp3",false);
-	initLocalStorage();
+	//入口函数
+	var start = function(){
+		J.sound.init();
+		sound = new J.sound();
+		sound.load("./audio/ring.mp3",false);
+		initLocalStorage();
 
-	showTaskList(tomatoData);
+		showTaskList(tomatoData);
 
-	planStart(getTime($D.id("workTime").value));
-	updateProgress();
+		planStart(getTime($D.id("workTime").value));
+		updateProgress();
+	}
+	
+	start();
+	
 
 });
 
