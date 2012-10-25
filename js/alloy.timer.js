@@ -237,22 +237,26 @@ Jx().$package(function(J){
 
 
 	$E.on(startWorkButton,"click", function(e){
-		if(taskNameEl.value !== text.pleaseStart && taskNameEl.value !== ""){
-		
-			var workTime = getTime($D.id("workTime").value);
-			startTiming(workTime);
-		}else{
-			alert(text.pleaseInputTask);
+		if(!isTiming){
+			if(taskNameEl.value !== text.pleaseStart && taskNameEl.value !== ""){
+			
+				var workTime = getTime($D.id("workTime").value);
+				startTiming(workTime);
+			}else{
+				alert(text.pleaseInputTask);
+			}
 		}
 	});
 
 	$E.on(startRestButton,"click",function(e){
-		taskNameEl.value = text.restTask;
-		if(taskNameEl.value !== text.pleaseStart && taskNameEl.value !== ""){
-			var restTime = getTime($D.id("restTime").value);
-			startTiming(restTime);
-		}else{
-			alert(text.pleaseInputTask);
+		if(!isTiming){
+			taskNameEl.value = text.restTask;
+			if(taskNameEl.value !== text.pleaseStart && taskNameEl.value !== ""){
+				var restTime = getTime($D.id("restTime").value);
+				startTiming(restTime);
+			}else{
+				alert(text.pleaseInputTask);
+			}
 		}
 	});
 
