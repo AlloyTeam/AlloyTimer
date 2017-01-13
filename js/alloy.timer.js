@@ -123,6 +123,8 @@ Jx().$package(function(J){
 			if(remainTime === 0){
 				timeComing();
 			}
+		}else {
+			timeComing();
 		}
 
 	}
